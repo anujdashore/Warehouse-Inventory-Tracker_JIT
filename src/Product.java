@@ -1,3 +1,5 @@
+package src;
+
 public class Product {
     private String id;
     private String name;
@@ -10,26 +12,31 @@ public class Product {
         this.quantity = quantity;
         this.reorderThreshold = reorderThreshold;
     }
-
     public String getId() { return id; }
     public String getName() { return name; }
     public int getQuantity() { return quantity; }
     public int getReorderThreshold() { return reorderThreshold; }
 
     public void addStock(int amount) {
-        if (amount > 0) quantity += amount;
+        if (amount > 0) {
+            this.quantity += amount;
+        }
     }
 
-    public void reduceStock(int amount) {
-        if (amount > 0 && amount <= quantity) quantity -= amount;
+    public boolean reduceStock(int amount) {
+        if (amount > 0 && amount <= this.quantity) {
+            this.quantity -= amount;
+            return true;
+        }
+        return false;
     }
 
     public boolean isLowStock() {
-        return quantity < reorderThreshold;
+        return this.quantity < this.reorderThreshold;
     }
 
     @Override
     public String toString() {
-        return name + " (ID: " + id + ") → Quantity: " + quantity;
+        return name + " (ID:" + id + ") Qty:" + quantity + " Threshold:" + reorderThreshold;
     }
 }
