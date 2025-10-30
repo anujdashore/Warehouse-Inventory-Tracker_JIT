@@ -28,8 +28,10 @@ If the stock goes below the limit, it shows a “Low Stock Alert”.
 ## How to Run
 1. Save all Java files in one folder (example: src).  
 2. Open Command Prompt or Terminal in that folder.  
-3. Type: javac *.java java Main
-4. You will see all product actions and alerts in the output.
+3. Compile all Java files: javac src/*.java
+4. Run the main program: java -cp src Main
+5. You will see all product actions and alerts printed in the output.
+
 
 ---
 
